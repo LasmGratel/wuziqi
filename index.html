@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/js.cookie.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/wuziqi.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div id="app" class="container">
+		<div class="row">
+			<div class="col-3">
+				<div class="card">
+					<div class="card-header">
+						房间信息
+					</div>
+					<div class="card-body">
+						{{ roomInfo }}
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header">
+						聊天栏
+					</div>
+					<div class="card-body">
+						<ul class="list-group" id="chats" v-for="chat in chats">
+							<li class="list-group-item"> {{ chat }} </li>
+						</ul>
+					</div>
+					<div class="card-footer btn-toolbar justify-content-between" role="toolbar">
+						<div class="input-group">
+							<input type="text" class="form-control" id="message">
+							<div class="input-group-append">
+								<button class="btn btn-primary" onclick="sendMsg()">发送</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-9">
+				<div class="card">
+					<div class="card-header">
+						<h5 id="inf">黑棋走</h5>
+					</div>
+					<div class="card-body" id="app">
+						<canvas id="c" class="card-text" height="600" width="600"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

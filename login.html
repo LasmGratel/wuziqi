@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/js.cookie.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/queue.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<style>
+		.wrapper {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+			min-height: 100%;
+			padding: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container" id="app">
+		<div class="row align-items-center">
+			<div class="col-sm-12 wrapper">
+				<div id="created" class="alert alert-primary" role="alert" v-if="created">
+					已创建房间 {{ room }}!
+					<a class="close" data-dismiss="alert" aria-hidden="true" href="#">&times;</a>
+				</div>
+				<div class="card">
+					<div class="card-header">
+						进入房间
+					</div>
+					<div class="card-body">
+						<ul class="list-group" id="queue" v-for="room of rooms">
+							<li class="list-group-item btn-toolbar justify-content-between" role="toolbar">
+								<div class="input-group">
+									<input type="text" class="form-control" readonly="true" aria-readonly="true"
+										:value="room"></input>
+									<div class="input-group-append">
+										<button class="btn btn-primary" @click="join(room)">加入</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="card-footer btn-toolbar justify-content-between" role="toolbar">
+						<div class="input-group">
+							<input type="text" class="form-control" id="name">
+							<div class="input-group-append">
+								<button class="btn btn-primary" onclick="queue()">新队列</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
